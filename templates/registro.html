@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AGENDA</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <form method="POST" id="signup-form" class="signup-form">
+                        <h2 class="form-title">INGRESE SUS DATOS</h2>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect2">TIPO DE DOCUMENTO</label> <br>
+                            <select multiple class="form-control" id="exampleFormControlSelect2">
+                              <option>T.I</option>
+                              <option>C.C</option>
+                              <option>P.A</option>
+                              <option>R.C</option>
+                              <option>C.E</option>
+                            </select>
+                          </div>
+                            <div class="form-group">
+                                <input type="text" class="form-input" name="name" id="name" placeholder="NUMERO DE DOCUMENTO"/>
+                            </div>
+                            
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="NOMBRE" id="name" placeholder="NOMBRE COMPLETO"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="APELLIDO" id="name" placeholder="APELLIDO COMPLETO"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="GMAIL">
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="name" id="name" placeholder="NUMERO CELULAR"/>
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="INGRESAR"/>
+                        </div>
+                    </form>
+                    <p class="loginhere">
+                        ¿YA ESTA REGISTRADO? <a href="#" class="loginhere-link">INGRESAR</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
