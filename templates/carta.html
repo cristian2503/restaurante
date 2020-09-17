@@ -1,90 +1,90 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
     <title>RESTAURANTE</title>
-</head>
-<body >
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">
+        LAS DELICIAS DE MAFECITA <br />
+        CARTA
+      </h1>
 
-<div class="container"> 
-    <h1 class="text-center">LAS DELICIAS DE MAFECITA <br> CARTA
-    </h1>
-        
-        <nav class="navbar navbar-dark bg-dark">
-          <nav class="navbar navbar-light bg-ranger">
-            <a class="navbar-brand ">LAS DELICIAS DE MAFECITA</a>
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="buscar platos" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">BUSCAR</button> 
-              <button type="button" class="btn btn-outline-info m-2">INICIO</button>
-              <button type="button" class="btn btn-outline-info m-2">CARTA</button>
-              <button type="button" class="btn btn-outline-info m-2">FACTURA</button>
-              <button type="button" class="btn btn-outline-info m-2">INGRESAR</button>
-            </form>
-          </nav>
-        </nav>
+      {% include 'menu.html' %}
 
-        <div class="container">
-            <div class="row">
-              <div class="col">
-                  <div class="card m-2" style="width: 18rem;">
-                      <img src="https://image.shutterstock.com/image-photo/grilled-meat-chicken-on-wooden-260nw-1202621971.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                          <p class="card-text">CARNE A LA PLANCHA. <br>PRECIO: 7000</p>
-                          
-                        </div>
-                    </div>
-              </div>
-              <div class="col">
-                  <div class="card m-2" style="width: 23rem;">
-                      <img src="https://media-cdn.tripadvisor.com/media/photo-s/09/a1/4f/38/restaurant-at-phi-phi.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                          <p class="card-text">PESCADO AL GUSTO. <br> PRECIO: 8000 </p>
-                      </div>
-                  </div>
-                
-
-              </div>
-              <div class="col">
-                  <div class="card m-2" style="width: 13rem;">
-                      <img src="https://www.hola.com/imagenes/cocina/recetas/20200130159403/pollo-asado-en-horno-de-lena/0-779-940/pollo-asado-m.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                          <p class="card-text">POLLO ASADO. <br>ENTERO <br>PRECIO: 21.000</p>
-                      </div>
-                      
-                  </div>
-                
+      <div class="container">
+        <div class="row">
+          {% for plato in data %}
+          <div class="col">
+            <div class="card m-2" style="width: 18rem">
+              <img
+                src="{{plato.imagen}}"
+                width="200"
+                height="200"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  {{ plato.nomplato }} <br />PRECIO: {{plato.valPlato}}
+                </p>
+                <form action="/registro" method="POST">
+                  <input type="hidden" name="idPlato" value="{{ plato.id }}" />
+                  <input
+                    type="hidden"
+                    name="nombrePlato"
+                    value="{{ plato.nomplato }}"
+                  />
+                  <input
+                    type="hidden"
+                    name="valorPlato"
+                    value="{{ plato.valPlato }}"
+                  />
+                  Cantidad:
+                  <input type="number" name="cantidadPlato" class="mb-4" />
+                  <button type="submit" class="btn btn-outline-info">
+                    Comprar
+                  </button>
+                </form>
               </div>
             </div>
-            
           </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
 
-  
-        
-                        
-                                
-                            
-</div>
-                            
-                            
-                   
-                    
-                    <!-- Optional JavaScript -->
-                    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
-
-
-
-
-
-

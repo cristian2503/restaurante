@@ -16,19 +16,7 @@
     <h1 class="text-center">LAS DELICIAS DE MAFECITA <br> FACTURA
     </h1>
         
-        <nav class="navbar navbar-dark bg-dark">
-          <nav class="navbar navbar-light bg-ranger">
-            <a class="navbar-brand ">LAS DELICIAS DE MAFECITA</a>
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="buscar platos" aria-label="Search">
-              <button class="btn btn-outline-success m-2 " type="submit">BUSCAR</button> 
-              <button type="button" class="btn btn-outline-info m-2">INICIO</button>
-              <button type="button" class="btn btn-outline-info m-2">CARTA</button>
-              <button type="button" class="btn btn-outline-info m-2">FACTURA</button>
-              <button type="button" class="btn btn-outline-info m-2">INGRESAR</button>
-            </form>
-          </nav>
-        </nav>
+        {% include 'menu.html' %}
 
         <div class="container">
             <div class="row">
@@ -37,14 +25,16 @@
             <div class="jumbotron jumbotron-fluid bg-info m-3">
                 <div class="container">
                     <h1 class="display-4 text-dark text-center pb-10">FACTURA</h1>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSQRJ42NLV9h-0w8ZH1SS-az1h_ERXNMTV_Cg&usqp=CAU" class="rounded float-right" alt="...">   
-                <p class="lead text-white text-left ">TIPO DOCUMENTO: <br> NUMERO DE DOCUMENTO:
-                  <br> NOMBRES: <br> APELLIDOS: <br> NUMERO CELULAR: <br> CORREO: <br> CANTIDAD: <br> VALOR CANTIDAD: <br> VALOR TOTAL: <br>PAGO: <br> DEVUELTA: </p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSQRJ42NLV9h-0w8ZH1SS-az1h_ERXNMTV_Cg&usqp=CAU" class="rounded float-right" alt="...">  
+                    {% for factura in informacionFactura %} 
+                <p class="lead text-white text-left ">
+                  <br> NOMBRES: {{ factura.nombre }} <br> APELLIDOS: {{ factura.apellido }}<br> NUMERO CELULAR: {{ factura.celular }}<br> CORREO: {{ factura.email }}<br> CANTIDAD: {{ factura.cantidad }}<br> VALOR UNITARIO: {{ factura.valPlato }}<br> VALOR TOTAL: {{ factura.valTotal }} </p>
+                  {% endfor %} 
                 <H3>MUCHAS GRACIAS POR CONFIAR EN NOSOTROS</H3>
-                <button type="button" class="btn btn-outline-dark">Regresar</button>
+                <a href="/"><button type="button" class="btn btn-outline-dark">Regresar</button></a>
               </div>
 
-            </div>
+            </div> 
                             
                             
                    
